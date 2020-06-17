@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock!</title>
+    <style>
+        body{
+            width:100vw;
+            height:100vh;
+            background:#aaa;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .clock{
+            display:flex;
+            justify-content:flex-end;
+            align-items:center;
+            background:black;
+            background:url('clock.gif');
+            height:200px;
+            width:950px;
+        }
+        .item,.colon{
+            background:url('number.gif');
+        }
+        .item{
+            width:100px;
+            height:100px;
+            overflow: hidden;
+            background-position:0px;
+        }
+        .colon{
+            width:50px;
+            height:100px;
+            overflow: hidden;
+            background-position:-1000px;
+        }
+        .btn{
+            background:url('btn.gif');
+            width:100px;
+            height:100px;
+            margin-right:10px;
+            margin-left:25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="colon"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="colon"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="btn"></div>
+    </div>
+
+    <script>
+        function clock(){
+            let now=new Date,
+                hour=now.getHours(),
+                minute=now.getMinutes(),
+                second=now.getSeconds(),
+                thour=Math.floor(hour/10)*100,
+                tminute=Math.floor(minute/10)*100,
+                tsecond=Math.floor(minute/10)*100,
+                shour=hour%10*100,
+                sminute=minute%10*100,
+                ssecond=second%10*100;
+                document.getElementsByClassName('item')[0].style.backgroundPosition=`-${thour}px`;
+                document.getElementsByClassName('item')[1].style.backgroundPosition=`-${shour}px`;
+                document.getElementsByClassName('item')[2].style.backgroundPosition=`-${tminute}px`;
+                document.getElementsByClassName('item')[3].style.backgroundPosition=`-${sminute}px`;
+                document.getElementsByClassName('item')[4].style.backgroundPosition=`-${tsecond}px`;
+                document.getElementsByClassName('item')[5].style.backgroundPosition=`-${ssecond}px`;
+                document.getElementsByClassName('colon')[0].style.opacity=(document.getElementsByClassName('colon')[0].style.opacity == 0)?1:0;
+                document.getElementsByClassName('colon')[1].style.opacity=(document.getElementsByClassName('colon')[1].style.opacity == 0)?1:0;
+        }
+        setInterval(clock,1000);
+        document.getElementsByClassName('btn')[0].onmousedown=()=>{
+            document.getElementsByClassName('clock')[0].style.background="url('lightclock.gif')";
+        }
+        document.getElementsByClassName('btn')[0].onmouseup=()=>{
+            document.getElementsByClassName('clock')[0].style.background="url('clock.gif')";
+        }
+    </script>
+</body>
+</html>
