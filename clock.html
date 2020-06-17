@@ -18,12 +18,12 @@
             justify-content:flex-end;
             align-items:center;
             background:black;
-            background:url('clock.gif');
+            background:url('img/clock.gif');
             height:200px;
             width:950px;
         }
         .item,.colon{
-            background:url('number.gif');
+            background:url('img/number.gif');
         }
         .item{
             width:100px;
@@ -38,7 +38,7 @@
             background-position:-1000px;
         }
         .btn{
-            background:url('btn.gif');
+            background:url('img/btn.gif');
             width:100px;
             height:100px;
             margin-right:10px;
@@ -82,10 +82,10 @@
         }
         setInterval(clock,1000);
         document.getElementsByClassName('btn')[0].onmousedown=()=>{
-            document.getElementsByClassName('clock')[0].style.background="url('lightclock.gif')";
+            document.getElementsByClassName('clock')[0].style.background="url('img/lightclock.gif')";
         }
         document.getElementsByClassName('btn')[0].onmouseup=()=>{
-            document.getElementsByClassName('clock')[0].style.background="url('clock.gif')";
+            document.getElementsByClassName('clock')[0].style.background="url('img/clock.gif')";
         }
     </script>
 </body>
