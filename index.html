@@ -30,12 +30,13 @@
             height:100px;
             overflow: hidden;
             background-position:0px;
+            transition:.2s;
         }
         .colon{
             width:50px;
             height:100px;
             overflow: hidden;
-            background-position:-1000px;
+            background-position:-1003px;
         }
         .btn{
             background:url('img/btn.gif');
@@ -67,10 +68,53 @@
                 second=now.getSeconds(),
                 thour=Math.floor(hour/10)*100,
                 tminute=Math.floor(minute/10)*100,
-                tsecond=Math.floor(minute/10)*100,
+                tsecond=Math.floor(second/10)*100,
                 shour=hour%10*100,
                 sminute=minute%10*100,
                 ssecond=second%10*100;
+      
+        d0 = document.querySelectorAll('.item')[0].style;
+        d1 = document.querySelectorAll('.item')[1].style;
+        d2 = document.querySelectorAll('.item')[2].style;
+        d3 = document.querySelectorAll('.item')[3].style;
+        d4 = document.querySelectorAll('.item')[4].style;
+        d5 = document.querySelectorAll('.item')[5].style;
+        if(d0.backgroundPosition!=`-${thour}px center`){
+            if(hour!=0){
+                setTimeout(()=>{
+                    d0.transform="rotateX(90deg)";
+                },800)
+            }
+        }
+        if(d1.backgroundPosition!=`-${shour}px center`){
+                setTimeout(()=>{
+                    d3.transform="rotateX(90deg)";
+                },800)
+        }
+        if(d2.backgroundPosition!=`-${tminute}px center`){
+            if(minute!=0){
+                setTimeout(()=>{
+                    d2.transform="rotateX(90deg)";
+                },800)
+            }
+        }
+        if(d3.backgroundPosition!=`-${sminute}px center`){
+                setTimeout(()=>{
+                    d3.transform="rotateX(90deg)";
+                },800)
+        }
+        if(d4.backgroundPosition!=`-${tsecond}px center`){
+            if(tsecond!=0){
+                setTimeout(()=>{
+                    d4.transform="rotateX(90deg)";
+                },800)
+            }
+        }
+        if(d5.backgroundPosition!=ssecond){
+            setTimeout(()=>{
+                d5.transform="rotateX(90deg)";
+            },800)
+        }
                 document.getElementsByClassName('item')[0].style.backgroundPosition=`-${thour}px`;
                 document.getElementsByClassName('item')[1].style.backgroundPosition=`-${shour}px`;
                 document.getElementsByClassName('item')[2].style.backgroundPosition=`-${tminute}px`;
@@ -79,6 +123,9 @@
                 document.getElementsByClassName('item')[5].style.backgroundPosition=`-${ssecond}px`;
                 document.getElementsByClassName('colon')[0].style.opacity=(document.getElementsByClassName('colon')[0].style.opacity == 0)?1:0;
                 document.getElementsByClassName('colon')[1].style.opacity=(document.getElementsByClassName('colon')[1].style.opacity == 0)?1:0;
+            for(let i=0;i<6;i++){
+                document.getElementsByClassName('item')[i].style.transform="rotateX(0deg)";
+            }
         }
         setInterval(clock,1000);
         document.getElementsByClassName('btn')[0].onmousedown=()=>{
