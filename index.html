@@ -80,28 +80,32 @@
         d4 = document.querySelectorAll('.item')[4].style;
         d5 = document.querySelectorAll('.item')[5].style;
         if(d0.backgroundPosition!=`-${thour}px center`){
-            if(hour!=0){
+            if(thour!=0){
                 setTimeout(()=>{
                     d0.transform="rotateX(90deg)";
                 },800)
             }
         }
         if(d1.backgroundPosition!=`-${shour}px center`){
+            if(shour!=0){
                 setTimeout(()=>{
                     d3.transform="rotateX(90deg)";
                 },800)
+            }
         }
         if(d2.backgroundPosition!=`-${tminute}px center`){
-            if(minute!=0){
+            if(tminute!=0){
                 setTimeout(()=>{
                     d2.transform="rotateX(90deg)";
                 },800)
             }
         }
         if(d3.backgroundPosition!=`-${sminute}px center`){
+            if(sminute!=0){
                 setTimeout(()=>{
                     d3.transform="rotateX(90deg)";
                 },800)
+            }
         }
         if(d4.backgroundPosition!=`-${tsecond}px center`){
             if(tsecond!=0){
